@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beg-Je-PiH">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -9,18 +9,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Signin View-->
+        <!--Authentication Failed View Controller-->
+        <scene sceneID="qoK-z7-Qhx">
+            <objects>
+                <viewController id="Dey-sI-hG8" userLabel="Authentication Failed View Controller" customClass="AuthenticationFailedViewController" customModule="Communicator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GS8-iu-PCS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8X6-y9-L98">
+                                <rect key="frame" x="47.5" y="404" width="319.5" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default: Authentication failed. Please try again." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8M-Dt-S1N">
+                                        <rect key="frame" x="0.0" y="0.0" width="319.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button toolTip="Press here for singing in" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6i-VI-yLn">
+                                        <rect key="frame" x="0.0" y="48" width="319.5" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="2rZ-Zk-NVJ"/>
+                                        </constraints>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign in" cornerStyle="dynamic" titleAlignment="center">
+                                            <backgroundConfiguration key="background" cornerRadius="0.0">
+                                                <color key="backgroundColor" name="BackgroundColor"/>
+                                                <color key="strokeColor" name="TextColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                            <color key="baseForegroundColor" name="TextColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9BR-0v-MOo"/>
+                                            <action selector="signInPressed:" destination="Dey-sI-hG8" eventType="touchUpInside" id="JzF-zO-jwh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jou-nY-AcC"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8X6-y9-L98" firstAttribute="centerY" secondItem="GS8-iu-PCS" secondAttribute="centerY" id="Auy-C7-ORb"/>
+                            <constraint firstItem="8X6-y9-L98" firstAttribute="centerX" secondItem="GS8-iu-PCS" secondAttribute="centerX" id="VVz-Pq-kkE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authenticationFailedMessage" destination="c8M-Dt-S1N" id="peV-pP-seo"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="tryAuthenticationAgain" id="D0e-qx-pDO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sit-Fk-4uT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1116" y="3"/>
+        </scene>
+        <!--Authentication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Signin View" customClass="ViewController" customModule="Communicator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Authentication View Controller" customClass="AuthenticationViewController" customModule="Communicator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-Yx-T2w" userLabel="Authentication Form">
-                                <rect key="frame" x="82" y="383" width="250" height="130"/>
+                                <rect key="frame" x="82" y="378" width="250" height="130"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" toolTip="Enter username" borderStyle="line" placeholder=" Username" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-FE-83z">
+                                    <textField toolTip="Enter username" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="line" placeholder=" Username" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-FE-83z">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <constraints>
@@ -30,7 +85,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartQuotesType="no" textContentType="username"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" toolTip="Enter password" borderStyle="line" placeholder=" Password" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-OF-0B5">
+                                    <textField toolTip="Enter password" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="line" placeholder=" Password" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-OF-0B5">
                                         <rect key="frame" x="0.0" y="50" width="250" height="30"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <constraints>
@@ -40,7 +95,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Press here for singing in" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-xN-VbE">
+                                    <button toolTip="Press here for singing in" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-xN-VbE">
                                         <rect key="frame" x="0.0" y="100" width="250" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="PJP-E5-PJ6"/>
@@ -54,6 +109,9 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                             <color key="baseForegroundColor" name="TextColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="74H-Kf-fkF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -71,30 +129,36 @@
                             <constraint firstItem="2zc-Yx-T2w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SOv-GQ-Xmf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="O1T-OF-0B5" id="ZtC-97-6S3"/>
+                        <outlet property="usernameTextField" destination="SL9-FE-83z" id="TZO-Cl-jRl"/>
+                        <segue destination="beg-Je-PiH" kind="presentation" identifier="goToDataView" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="cVy-x0-1eN"/>
+                        <segue destination="Dey-sI-hG8" kind="presentation" identifier="goToAuthenticationFailed" id="CsA-0u-DF4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-214.49275362318843" y="2.6785714285714284"/>
         </scene>
-        <!--Data View-->
+        <!--Data View Controller-->
         <scene sceneID="9ac-Kr-74f">
             <objects>
-                <viewController id="beg-Je-PiH" userLabel="Data View" sceneMemberID="viewController">
+                <viewController id="beg-Je-PiH" userLabel="Data View Controller" customClass="DataViewController" customModule="Communicator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fy0-sB-qqA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o8h-BQ-44B" userLabel="Main View">
-                                <rect key="frame" x="57" y="81" width="300" height="734"/>
+                                <rect key="frame" x="57" y="33" width="300" height="830"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCh-sW-o01">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
+                                    <textView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCh-sW-o01" userLabel="Data">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="258"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="qNz-d1-Tad"/>
                                         </constraints>
-                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
+                                        <mutableString key="text">Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
 
 Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
 
@@ -104,10 +168,13 @@ Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4W-8a-kiN" userLabel="Buttons View">
-                                        <rect key="frame" x="0.0" y="660" width="300" height="74"/>
+                                        <rect key="frame" x="0.0" y="760" width="300" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Press here for singing in" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbu-aJ-OLd">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
+                                            <button toolTip="Press here for singing in" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbu-aJ-OLd">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="afk-ca-04K"/>
+                                                </constraints>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Show more" cornerStyle="dynamic" titleAlignment="center">
                                                     <backgroundConfiguration key="background" cornerRadius="0.0">
@@ -117,9 +184,15 @@ Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                     <color key="baseForegroundColor" name="TextColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="showMorePressed:" destination="beg-Je-PiH" eventType="touchUpInside" id="d22-Bf-Bt5"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Press here for singing in" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMv-Qz-ykO">
-                                                <rect key="frame" x="0.0" y="42" width="300" height="32"/>
+                                            <button toolTip="Press here for singing in" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMv-Qz-ykO">
+                                                <rect key="frame" x="0.0" y="40" width="300" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="fvs-4B-qlN"/>
+                                                </constraints>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign out" cornerStyle="dynamic" titleAlignment="center">
                                                     <backgroundConfiguration key="background" cornerRadius="0.0">
@@ -129,6 +202,9 @@ Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                     <color key="baseForegroundColor" name="TextColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signOutPressed:" destination="beg-Je-PiH" eventType="touchUpInside" id="gvf-45-9Iz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -149,18 +225,26 @@ Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem
                             <constraint firstItem="o8h-BQ-44B" firstAttribute="top" secondItem="QqZ-Ev-d4q" secondAttribute="top" constant="33" id="gzE-qO-8qp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="11g-dC-JBP"/>
+                    <connections>
+                        <outlet property="data" destination="PCh-sW-o01" id="P9v-tq-Kq7"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToAuthenticationView" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="j1O-PE-q3S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Se3-7E-HSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448.125" y="0.0"/>
+            <point key="canvasLocation" x="832" y="3"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="D0e-qx-pDO"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BackgroundColor">
-            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

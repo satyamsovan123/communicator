@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		E973D2AD2A82B555001C6650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2AC2A82B555001C6650 /* AppDelegate.swift */; };
 		E973D2AF2A82B555001C6650 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2AE2A82B555001C6650 /* SceneDelegate.swift */; };
-		E973D2B12A82B555001C6650 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2B02A82B555001C6650 /* ViewController.swift */; };
+		E973D2B12A82B555001C6650 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2B02A82B555001C6650 /* AuthenticationViewController.swift */; };
 		E973D2B42A82B555001C6650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E973D2B22A82B555001C6650 /* Main.storyboard */; };
 		E973D2B62A82B556001C6650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E973D2B52A82B556001C6650 /* Assets.xcassets */; };
 		E973D2B92A82B556001C6650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E973D2B72A82B556001C6650 /* LaunchScreen.storyboard */; };
+		E973D2C52A83D3E1001C6650 /* AuthenticationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2C42A83D3E1001C6650 /* AuthenticationDataModel.swift */; };
+		E973D2C72A83D524001C6650 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2C62A83D524001C6650 /* AuthenticationService.swift */; };
+		E973D2C92A8407E7001C6650 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2C82A8407E7001C6650 /* DataViewController.swift */; };
+		E973D2CB2A840D9E001C6650 /* AuthenticationFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2CA2A840D9E001C6650 /* AuthenticationFailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E973D2A92A82B555001C6650 /* Communicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Communicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973D2AC2A82B555001C6650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E973D2AE2A82B555001C6650 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E973D2B02A82B555001C6650 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E973D2B02A82B555001C6650 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		E973D2B32A82B555001C6650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E973D2B52A82B556001C6650 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E973D2B82A82B556001C6650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E973D2BA2A82B556001C6650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E973D2C42A83D3E1001C6650 /* AuthenticationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataModel.swift; sourceTree = "<group>"; };
+		E973D2C62A83D524001C6650 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		E973D2C82A8407E7001C6650 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		E973D2CA2A840D9E001C6650 /* AuthenticationFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,43 @@
 		E973D2AB2A82B555001C6650 /* Communicator */ = {
 			isa = PBXGroup;
 			children = (
+				E973D2C32A83CE44001C6650 /* Models */,
 				E973D2AC2A82B555001C6650 /* AppDelegate.swift */,
 				E973D2AE2A82B555001C6650 /* SceneDelegate.swift */,
-				E973D2B02A82B555001C6650 /* ViewController.swift */,
-				E973D2B22A82B555001C6650 /* Main.storyboard */,
+				E973D2C22A83CE32001C6650 /* Controllers */,
+				E973D2C02A83CE1E001C6650 /* Views */,
 				E973D2B52A82B556001C6650 /* Assets.xcassets */,
-				E973D2B72A82B556001C6650 /* LaunchScreen.storyboard */,
 				E973D2BA2A82B556001C6650 /* Info.plist */,
 			);
 			path = Communicator;
+			sourceTree = "<group>";
+		};
+		E973D2C02A83CE1E001C6650 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E973D2B22A82B555001C6650 /* Main.storyboard */,
+				E973D2B72A82B556001C6650 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E973D2C22A83CE32001C6650 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E973D2B02A82B555001C6650 /* AuthenticationViewController.swift */,
+				E973D2C82A8407E7001C6650 /* DataViewController.swift */,
+				E973D2CA2A840D9E001C6650 /* AuthenticationFailedViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E973D2C32A83CE44001C6650 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E973D2C42A83D3E1001C6650 /* AuthenticationDataModel.swift */,
+				E973D2C62A83D524001C6650 /* AuthenticationService.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E973D2B12A82B555001C6650 /* ViewController.swift in Sources */,
+				E973D2B12A82B555001C6650 /* AuthenticationViewController.swift in Sources */,
 				E973D2AD2A82B555001C6650 /* AppDelegate.swift in Sources */,
 				E973D2AF2A82B555001C6650 /* SceneDelegate.swift in Sources */,
+				E973D2C52A83D3E1001C6650 /* AuthenticationDataModel.swift in Sources */,
+				E973D2CB2A840D9E001C6650 /* AuthenticationFailedViewController.swift in Sources */,
+				E973D2C92A8407E7001C6650 /* DataViewController.swift in Sources */,
+				E973D2C72A83D524001C6650 /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
