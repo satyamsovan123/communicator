@@ -1,24 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beg-Je-PiH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Signin View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Signin View" customClass="ViewController" customModule="Communicator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-Yx-T2w" userLabel="Authentication Form">
+                                <rect key="frame" x="82" y="383" width="250" height="130"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" toolTip="Enter username" borderStyle="line" placeholder=" Username" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-FE-83z">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="OGs-wZ-s93"/>
+                                        </constraints>
+                                        <color key="textColor" name="TextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartQuotesType="no" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" toolTip="Enter password" borderStyle="line" placeholder=" Password" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-OF-0B5">
+                                        <rect key="frame" x="0.0" y="50" width="250" height="30"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="hQb-X2-BCj"/>
+                                        </constraints>
+                                        <color key="textColor" name="TextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartQuotesType="no" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Press here for singing in" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-xN-VbE">
+                                        <rect key="frame" x="0.0" y="100" width="250" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="PJP-E5-PJ6"/>
+                                        </constraints>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign in" cornerStyle="dynamic" titleAlignment="center">
+                                            <backgroundConfiguration key="background" cornerRadius="0.0">
+                                                <color key="backgroundColor" name="BackgroundColor"/>
+                                                <color key="strokeColor" name="TextColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                            <color key="baseForegroundColor" name="TextColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EiL-xN-VbE" firstAttribute="centerX" secondItem="2zc-Yx-T2w" secondAttribute="centerX" id="BR5-KF-Z09"/>
+                                    <constraint firstItem="SL9-FE-83z" firstAttribute="centerX" secondItem="2zc-Yx-T2w" secondAttribute="centerX" id="DlP-T9-Nye"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="fiY-dw-fH7"/>
+                                    <constraint firstItem="O1T-OF-0B5" firstAttribute="centerX" secondItem="2zc-Yx-T2w" secondAttribute="centerX" id="rgL-dR-w92"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2zc-Yx-T2w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N3Q-oZ-OzT"/>
+                            <constraint firstItem="2zc-Yx-T2w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SOv-GQ-Xmf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-214.49275362318843" y="2.6785714285714284"/>
+        </scene>
+        <!--Data View-->
+        <scene sceneID="9ac-Kr-74f">
+            <objects>
+                <viewController id="beg-Je-PiH" userLabel="Data View" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fy0-sB-qqA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o8h-BQ-44B" userLabel="Main View">
+                                <rect key="frame" x="57" y="81" width="300" height="734"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCh-sW-o01">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="qNz-d1-Tad"/>
+                                        </constraints>
+                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
+
+Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
+
+Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4W-8a-kiN" userLabel="Buttons View">
+                                        <rect key="frame" x="0.0" y="660" width="300" height="74"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Press here for singing in" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbu-aJ-OLd">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Show more" cornerStyle="dynamic" titleAlignment="center">
+                                                    <backgroundConfiguration key="background" cornerRadius="0.0">
+                                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                                        <color key="strokeColor" name="TextColor"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="TextColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Press here for singing in" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMv-Qz-ykO">
+                                                <rect key="frame" x="0.0" y="42" width="300" height="32"/>
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign out" cornerStyle="dynamic" titleAlignment="center">
+                                                    <backgroundConfiguration key="background" cornerRadius="0.0">
+                                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                                        <color key="strokeColor" name="TextColor"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="TextColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PCh-sW-o01" firstAttribute="top" secondItem="o8h-BQ-44B" secondAttribute="top" id="Eae-td-O3x"/>
+                                    <constraint firstItem="PCh-sW-o01" firstAttribute="centerX" secondItem="o8h-BQ-44B" secondAttribute="centerX" id="csc-3S-Hn4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="gH3-Tn-Izq"/>
+                                    <constraint firstItem="d4W-8a-kiN" firstAttribute="centerX" secondItem="o8h-BQ-44B" secondAttribute="centerX" id="uEd-FQ-M6X"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QqZ-Ev-d4q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o8h-BQ-44B" firstAttribute="centerY" secondItem="fy0-sB-qqA" secondAttribute="centerY" id="1Tg-dZ-vSs"/>
+                            <constraint firstItem="o8h-BQ-44B" firstAttribute="centerX" secondItem="fy0-sB-qqA" secondAttribute="centerX" id="Bhd-pb-qHi"/>
+                            <constraint firstItem="o8h-BQ-44B" firstAttribute="top" secondItem="QqZ-Ev-d4q" secondAttribute="top" constant="33" id="gzE-qO-8qp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Se3-7E-HSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448.125" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundColor">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
