@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITextField {
-    func addBottomBorder(){
+    func addBottomBorder() {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
         bottomLine.backgroundColor = UIColor.white.cgColor
@@ -17,7 +17,7 @@ extension UITextField {
     }
 }
 
-class AuthenticationViewController:  UIViewController, UITextFieldDelegate {
+class AuthenticationViewController:  UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,6 +26,7 @@ class AuthenticationViewController:  UIViewController, UITextFieldDelegate {
     var username: String = ""
     var password: String = ""
     var message: String = ""
+    var token: String = ""
     
     var authenticationManager = AuthenticationManager()
     
@@ -41,7 +42,8 @@ class AuthenticationViewController:  UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToDataView") {
-            // let destinationViewController = segue.destination as! DataViewController
+            let destinationViewController = segue.destination as! DataViewController
+            destinationViewController.token = token
         } else if(segue.identifier == "goToAuthenticationFailed") {
             let destinationViewController = segue.destination as! AuthenticationFailedViewController
             destinationViewController.message = message
@@ -61,6 +63,19 @@ class AuthenticationViewController:  UIViewController, UITextFieldDelegate {
         checkForm()
     }
     
+    func checkForm() {
+        activityIndicator.startAnimating()
+        if(self.username == "" || self.password == "") {
+            return
+        } else {
+            let authenticationBackendRequest = AuthenticationBackendRequest(username: self.username, password: self.password)
+            authenticationManager.checkCredentials(authenticationBackendRequest: authenticationBackendRequest)
+        }
+    }
+    
+}
+
+extension AuthenticationViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if(textField.placeholder == " Username") {
@@ -89,29 +104,15 @@ class AuthenticationViewController:  UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func checkForm() {
-        activityIndicator.startAnimating()
-        if(self.username == "" || self.password == "") {
-            return
-        } else {
-            let authenticationBackendRequest = AuthenticationBackendRequest(username: self.username, password: self.password)
-            authenticationManager.checkCredentials(authenticationBackendRequest: authenticationBackendRequest)
-        }
-    }
-    
 }
 
 extension AuthenticationViewController: AuthenticationManagerDelegate {
     func didCompleteAuthentication(_ authenticationManager: AuthenticationManager, authenticationBackendResponse: AuthenticationBackendResponse) {
         print(authenticationBackendResponse)
-        
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.message = authenticationBackendResponse.message
-            
-            if(authenticationBackendResponse.code == 200) {
-                self.performSegue(withIdentifier: "goToDataView", sender: self)
-            } else {
+            if(authenticationBackendResponse.code != 200) {
                 self.performSegue(withIdentifier: "goToAuthenticationFailed", sender: self)
             }
         }
@@ -123,6 +124,16 @@ extension AuthenticationViewController: AuthenticationManagerDelegate {
             self.activityIndicator.stopAnimating()
             self.message = "Some error occured. Please try again."
             self.performSegue(withIdentifier: "goToAuthenticationFailed", sender: self)
+        }
+    }
+    
+    func didReceiveToken(_ authenticationManager: AuthenticationManager, token: String) {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.token = token
+            if(token != "") {
+                self.performSegue(withIdentifier: "goToDataView", sender: self)
+            }
         }
     }
     

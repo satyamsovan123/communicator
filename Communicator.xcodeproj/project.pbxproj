@@ -99,6 +99,7 @@
 		E973D2C32A83CE44001C6650 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E98B20592A8AB20A00C31A63 /* Data */,
 				E973D2CF2A84E545001C6650 /* Authentication */,
 			);
 			path = Models;
@@ -112,6 +113,13 @@
 				E973D2CC2A84E3C0001C6650 /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E98B20592A8AB20A00C31A63 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

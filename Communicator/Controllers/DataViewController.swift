@@ -9,17 +9,24 @@ import UIKit
 
 class DataViewController: UIViewController {
     
+    var token: String = ""
+    
     @IBOutlet weak var data: UITextView!
     
     @IBAction func showMorePressed(_ sender: UIButton) {
+        if(token != "") {
+            
+        }
     }
     
     @IBAction func signOutPressed(_ sender: UIButton) {
-         self.performSegue(withIdentifier: "goToAuthenticationView", sender: self)
+        token = ""
+        self.performSegue(withIdentifier: "goToAuthenticationView", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(token)
     }
-
+    
 }
