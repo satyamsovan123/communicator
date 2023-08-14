@@ -72,10 +72,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="y0S-cs-RT1">
+                                <rect key="frame" x="188.5" y="424.5" width="37" height="37"/>
+                                <color key="color" name="TextColor"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-Yx-T2w" userLabel="Authentication Form">
                                 <rect key="frame" x="82" y="378" width="250" height="130"/>
                                 <subviews>
-                                    <textField toolTip="Enter username" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="line" placeholder=" Username" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-FE-83z">
+                                    <textField toolTip="Enter username" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="line" placeholder=" Username" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-FE-83z">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <constraints>
@@ -83,9 +87,9 @@
                                         </constraints>
                                         <color key="textColor" name="TextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartQuotesType="no" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartQuotesType="no" textContentType="username"/>
                                     </textField>
-                                    <textField toolTip="Enter password" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="line" placeholder=" Password" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-OF-0B5">
+                                    <textField toolTip="Enter password" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="line" placeholder=" Password" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-OF-0B5">
                                         <rect key="frame" x="0.0" y="50" width="250" height="30"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <constraints>
@@ -93,7 +97,7 @@
                                         </constraints>
                                         <color key="textColor" name="TextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartQuotesType="no" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
                                     <button toolTip="Press here for singing in" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-xN-VbE">
                                         <rect key="frame" x="0.0" y="100" width="250" height="30"/>
@@ -127,9 +131,12 @@
                         <constraints>
                             <constraint firstItem="2zc-Yx-T2w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N3Q-oZ-OzT"/>
                             <constraint firstItem="2zc-Yx-T2w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SOv-GQ-Xmf"/>
+                            <constraint firstItem="y0S-cs-RT1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cnZ-7z-O36"/>
+                            <constraint firstItem="y0S-cs-RT1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hQ3-iu-zgT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="y0S-cs-RT1" id="Nbe-ac-4l3"/>
                         <outlet property="passwordTextField" destination="O1T-OF-0B5" id="ZtC-97-6S3"/>
                         <outlet property="usernameTextField" destination="SL9-FE-83z" id="TZO-Cl-jRl"/>
                         <segue destination="beg-Je-PiH" kind="presentation" identifier="goToDataView" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="cVy-x0-1eN"/>
@@ -158,11 +165,11 @@
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="qNz-d1-Tad"/>
                                         </constraints>
-                                        <mutableString key="text">Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
+                                        <string key="text">Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
 
 Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
 
-Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.</mutableString>
+Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
