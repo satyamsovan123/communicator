@@ -1,36 +1,33 @@
 //
-//  AuthenticationManager.swift
+//  DataManager.swift
 //  Communicator
 //
-//  Created by Satyam Sovan Mishra on 10/08/23.
+//  Created by Satyam Sovan Mishra on 15/08/23.
 //
 
 import Foundation
 
-protocol AuthenticationManagerDelegate {
-    func didCompleteAuthentication(_ authenticationManager: AuthenticationManager, authenticationBackendResponse: AuthenticationBackendResponse)
+protocol DataManagerDelegate {
+    func didReceiveData(_ dataManager: DataManager, dataBackendResponse: DataBackendResponse)
     func didFailWithError(error: Error)
-    func didReceiveToken(_ authenticationManager: AuthenticationManager, token: String)
 }
 
-struct AuthenticationManager {
-    
-    var delegate: AuthenticationManagerDelegate?
+struct DataManager {
+    var delegate: DataManagerDelegate?
     
     let backendUrl: String = "http://localhost:3000/api"
     
-    func checkCredentials(authenticationBackendRequest: AuthenticationBackendRequest) {
-        let urlString: String = "\(backendUrl)/signin"
-        performBackendRequest(urlString: urlString, authenticationBackendRequest: authenticationBackendRequest)
+    func getData(token: String) {
+        let urlString: String = "\(backendUrl)/getalldata"
+        performBackendRequest(urlString: urlString, token: token)
     }
     
-    func performBackendRequest(urlString: String, authenticationBackendRequest: AuthenticationBackendRequest) {
+    func performBackendRequest(urlString: String, token: String) {
         if let url = URL(string: urlString) {
             var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "POST"
-            urlRequest.httpBody = convertToJSON(data: authenticationBackendRequest)
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.httpMethod = "GET"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+            urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             let urlSession = URLSession(configuration: .default)
             let task = urlSession.dataTask(with: urlRequest, completionHandler: completionHandler)
             task.resume()
@@ -38,44 +35,26 @@ struct AuthenticationManager {
     }
     
     func completionHandler(data: Data?, urlResponse: URLResponse?, error: Error?) {
-        
-        var token: String = ""
-        
         if(error != nil) {
             delegate?.didFailWithError(error: error!)
         }
-
-        if let safeUrlResponse = urlResponse {
-            if let rawToken = (safeUrlResponse as! HTTPURLResponse).value(forHTTPHeaderField: "Authorization") {
-                token = rawToken.components(separatedBy: " ")[1]
-                delegate?.didReceiveToken(self, token: token)
-            }
-        }
         
         if let safeData = data {
-            if let authenticationBackendResponse = parseJSON(data: safeData) {
-                delegate?.didCompleteAuthentication(self, authenticationBackendResponse: authenticationBackendResponse)
+            // print(String(data: safeData, encoding: .utf8))
+            if let dataBackendResponse = self.parseJSON(data: safeData) {
+                delegate?.didReceiveData(self, dataBackendResponse: dataBackendResponse)
             }
         }
     }
     
-    func parseJSON(data: Data) -> AuthenticationBackendResponse? {
+    func parseJSON(data: Data) -> DataBackendResponse? {
         let decoder = JSONDecoder()
         do {
-            let authenticationBackendResponse = try decoder.decode(AuthenticationBackendResponse.self, from: data)
-            return authenticationBackendResponse
+            let dataBackendResponse = try decoder.decode(DataBackendResponse.self, from: data)
+            return dataBackendResponse
         } catch {
             return nil
         }
     }
     
-    func convertToJSON(data: AuthenticationBackendRequest) -> Data? {
-        let encoder = JSONEncoder()
-        do {
-            let authenticationBackendRequest = try encoder.encode(data)
-            return authenticationBackendRequest
-        } catch {
-            return nil
-        }
-    }
 }

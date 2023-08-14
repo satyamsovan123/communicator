@@ -76,10 +76,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="y0S-cs-RT1">
-                                <rect key="frame" x="429.5" y="188.5" width="37" height="37"/>
-                                <color key="color" name="TextColor"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-Yx-T2w" userLabel="Authentication Form">
                                 <rect key="frame" x="323" y="142" width="250" height="130"/>
                                 <subviews>
@@ -129,6 +125,10 @@
                                     <constraint firstItem="O1T-OF-0B5" firstAttribute="centerX" secondItem="2zc-Yx-T2w" secondAttribute="centerX" id="rgL-dR-w92"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="y0S-cs-RT1">
+                                <rect key="frame" x="429.5" y="188.5" width="37" height="37"/>
+                                <color key="color" name="TextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -227,17 +227,23 @@ Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem
                                     <constraint firstItem="d4W-8a-kiN" firstAttribute="centerX" secondItem="o8h-BQ-44B" secondAttribute="centerX" id="uEd-FQ-M6X"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uOl-Mg-2Lp">
+                                <rect key="frame" x="429.5" y="188.5" width="37" height="37"/>
+                                <color key="color" name="TextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QqZ-Ev-d4q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="o8h-BQ-44B" firstAttribute="centerY" secondItem="fy0-sB-qqA" secondAttribute="centerY" id="1Tg-dZ-vSs"/>
                             <constraint firstItem="o8h-BQ-44B" firstAttribute="centerX" secondItem="fy0-sB-qqA" secondAttribute="centerX" id="Bhd-pb-qHi"/>
+                            <constraint firstItem="uOl-Mg-2Lp" firstAttribute="centerY" secondItem="fy0-sB-qqA" secondAttribute="centerY" id="gHd-p0-tMV"/>
                             <constraint firstItem="o8h-BQ-44B" firstAttribute="top" secondItem="QqZ-Ev-d4q" secondAttribute="top" constant="33" id="gzE-qO-8qp"/>
+                            <constraint firstItem="uOl-Mg-2Lp" firstAttribute="centerX" secondItem="fy0-sB-qqA" secondAttribute="centerX" id="mwA-fc-vOI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="11g-dC-JBP"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="uOl-Mg-2Lp" id="keo-ez-Fax"/>
                         <outlet property="data" destination="PCh-sW-o01" id="P9v-tq-Kq7"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToAuthenticationView" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="j1O-PE-q3S"/>
                     </connections>

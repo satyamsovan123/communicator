@@ -1,18 +1,21 @@
 //
-//  AuthenticationDataModel.swift
+//  DataBackendResponse.swift
 //  Communicator
 //
-//  Created by Satyam Sovan Mishra on 09/08/23.
+//  Created by Satyam Sovan Mishra on 15/08/23.
 //
 
 import Foundation
 
-struct AuthenticationBackendResponse: Codable {
-    let data: EmptyData
+struct DataBackendResponse: Codable {
+    let data: [PostData]
     let message: String
     let code: Int
 }
 
-struct EmptyData: Codable {
-    
+struct PostData: Codable {
+    let _id: String
+    let username: String
+    let title: String
+    let article: String
 }

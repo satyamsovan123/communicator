@@ -18,6 +18,8 @@
 		E973D2C92A8407E7001C6650 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2C82A8407E7001C6650 /* DataViewController.swift */; };
 		E973D2CB2A840D9E001C6650 /* AuthenticationFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2CA2A840D9E001C6650 /* AuthenticationFailedViewController.swift */; };
 		E973D2CD2A84E3C0001C6650 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973D2CC2A84E3C0001C6650 /* AuthenticationManager.swift */; };
+		E98B205B2A8AB2BC00C31A63 /* DataBackendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B205A2A8AB2BC00C31A63 /* DataBackendResponse.swift */; };
+		E98B205D2A8AB2CE00C31A63 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B205C2A8AB2CE00C31A63 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E973D2C82A8407E7001C6650 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		E973D2CA2A840D9E001C6650 /* AuthenticationFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFailedViewController.swift; sourceTree = "<group>"; };
 		E973D2CC2A84E3C0001C6650 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		E98B205A2A8AB2BC00C31A63 /* DataBackendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBackendResponse.swift; sourceTree = "<group>"; };
+		E98B205C2A8AB2CE00C31A63 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 		E98B20592A8AB20A00C31A63 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E98B205A2A8AB2BC00C31A63 /* DataBackendResponse.swift */,
+				E98B205C2A8AB2CE00C31A63 /* DataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -194,11 +200,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E973D2B12A82B555001C6650 /* AuthenticationViewController.swift in Sources */,
+				E98B205D2A8AB2CE00C31A63 /* DataManager.swift in Sources */,
 				E973D2CD2A84E3C0001C6650 /* AuthenticationManager.swift in Sources */,
 				E973D2AD2A82B555001C6650 /* AppDelegate.swift in Sources */,
 				E973D2AF2A82B555001C6650 /* SceneDelegate.swift in Sources */,
 				E973D2C52A83D3E1001C6650 /* AuthenticationBackendResponse.swift in Sources */,
 				E973D2CB2A840D9E001C6650 /* AuthenticationFailedViewController.swift in Sources */,
+				E98B205B2A8AB2BC00C31A63 /* DataBackendResponse.swift in Sources */,
 				E973D2C92A8407E7001C6650 /* DataViewController.swift in Sources */,
 				E973D2C72A83D524001C6650 /* AuthenticationBackendRequest.swift in Sources */,
 			);
