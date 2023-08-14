@@ -20,13 +20,18 @@ struct AuthenticationManager {
     
     func checkCredentials(authenticationBackendRequest: AuthenticationBackendRequest) {
         let urlString: String = "\(backendUrl)/signin"
-        performRequest(urlString: urlString, authenticationBackendRequest: authenticationBackendRequest)
+        performBackendRequest(urlString: urlString, authenticationBackendRequest: authenticationBackendRequest)
     }
     
-    func performRequest(urlString: String, authenticationBackendRequest: AuthenticationBackendRequest) {
+    func performBackendRequest(urlString: String, authenticationBackendRequest: AuthenticationBackendRequest) {
         if let url = URL(string: urlString) {
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "POST"
+            urlRequest.httpBody = convertToJSON(data: authenticationBackendRequest)
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
             let urlSession = URLSession(configuration: .default)
-            let task = urlSession.dataTask(with: url, completionHandler: completionHandler)
+            let task = urlSession.dataTask(with: urlRequest, completionHandler: completionHandler)
             task.resume()
         }
     }
@@ -47,6 +52,16 @@ struct AuthenticationManager {
         do {
             let authenticationBackendResponse = try decoder.decode(AuthenticationBackendResponse.self, from: data)
             return authenticationBackendResponse
+        } catch {
+            return nil
+        }
+    }
+    
+    func convertToJSON(data: AuthenticationBackendRequest) -> Data? {
+        let encoder = JSONEncoder()
+        do {
+            let authenticationBackendRequest = try encoder.encode(data)
+            return authenticationBackendRequest
         } catch {
             return nil
         }

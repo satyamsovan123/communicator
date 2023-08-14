@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct AuthenticationBackendRequest {
+struct AuthenticationBackendRequest: Codable {
     let username: String
     let password: String
 

@@ -44,7 +44,7 @@ class AuthenticationViewController:  UIViewController, UITextFieldDelegate {
             // let destinationViewController = segue.destination as! DataViewController
         } else if(segue.identifier == "goToAuthenticationFailed") {
             let destinationViewController = segue.destination as! AuthenticationFailedViewController
-            destinationViewController.message = message ?? "You failed miserably!"
+            destinationViewController.message = message
         }
     }
     
