@@ -15,7 +15,7 @@ protocol DataManagerDelegate {
 struct DataManager {
     var delegate: DataManagerDelegate?
     
-    let backendUrl: String = "http://localhost:3000/api"
+    let backendUrl: String = "http://192.168.29.33:3000/api"
     
     func getData(token: String) {
         let urlString: String = "\(backendUrl)/getalldata"

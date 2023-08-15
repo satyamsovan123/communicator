@@ -169,11 +169,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="qNz-d1-Tad"/>
                                         </constraints>
-                                        <string key="text">Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
-
-Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl dui, dictum et lorem ac, pharetra viverra felis. In pulvinar bibendum mi sit amet euismod. Aliquam neque leo, faucibus non cursus vitae, consequat ut felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent scelerisque nulla ac nulla faucibus sodales. Proin at pellentesque nibh. Donec vel orci scelerisque, consectetur nibh et, dictum dui. Integer tristique ultrices facilisis. Praesent id diam a nibh volutpat aliquet. Praesent id ex quis eros fringilla dapibus. Sed maximus tellus sed pretium varius. Ut consequat rutrum erat nec ultrices.
-
-Vivamus facilisis massa sed lorem ultrices congue. Vestibulum sed nunc non lorem pulvinar efficitur. In tortor tellus, imperdiet et tincidunt viverra, malesuada ac odio.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

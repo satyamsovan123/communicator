@@ -17,7 +17,7 @@ struct AuthenticationManager {
     
     var delegate: AuthenticationManagerDelegate?
     
-    let backendUrl: String = "http://localhost:3000/api"
+    let backendUrl: String = "http://192.168.29.33:3000/api"
     
     func checkCredentials(authenticationBackendRequest: AuthenticationBackendRequest) {
         let urlString: String = "\(backendUrl)/signin"
